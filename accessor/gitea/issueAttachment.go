@@ -40,9 +40,9 @@ func (accessor *DefaultAccessor) GetIssueAttachmentUUID(issueID int64, fileName 
 
 // getAttachmentPath returns the path at which to store an attachment with a given UUID
 func (accessor *DefaultAccessor) getAttachmentPath(UUID string) string {
-	attachmentsRootDir := accessor.GetStringConfig("attachment", "PATH")
+	attachmentsRootDir := "../gitea/gitea/gitea/attachments"//accessor.GetStringConfig("attachment", "PATH")
 	if attachmentsRootDir == "" {
-		attachmentsRootDir = filepath.Join(accessor.rootDir, "data", "attachments")
+		attachmentsRootDir = "/gitea/gitea/gitea/attachments" //filepath.Join(accessor.rootDir, "data", "attachments")
 	}
 
 	d1 := UUID[0:1]

@@ -77,7 +77,7 @@ func CreateDefaultAccessor(
 	if err != nil {
 		return nil, err
 	}
-	giteaCustomConfigPath := fmt.Sprintf("%s/custom/conf/app.ini", giteaRootDir)
+	giteaCustomConfigPath := fmt.Sprintf("%s/conf/app.ini", giteaRootDir)
 	giteaCustomConfig, err := fetchConfig(giteaCustomConfigPath)
 	if err != nil {
 		return nil, err
@@ -104,7 +104,7 @@ func CreateDefaultAccessor(
 		pushWiki:      pushWiki}
 
 	// open gitea DB - currently sqlite-specific...
-	giteaDbPath := giteaAccessor.GetStringConfig("database", "PATH")
+	giteaDbPath := fmt.Sprintf("%s/gitea.db",giteaRootDir) //giteaAccessor.GetStringConfig("database", "PATH")
 	giteaDb, err := sql.Open("sqlite3", giteaDbPath)
 	if err != nil {
 		err = errors.Wrapf(err, "opening sqlite database %s", giteaDbPath)
