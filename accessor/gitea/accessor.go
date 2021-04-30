@@ -24,6 +24,8 @@ type IssueAttachment struct {
 	CommentID int64
 	FileName  string
 	Time      int64
+	Size	  int64
+
 }
 
 // IssueCommentType defines the types of issue comment we support
